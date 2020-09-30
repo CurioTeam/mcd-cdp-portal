@@ -10,6 +10,14 @@ import {
 } from '@makerdao/dai-plugin-mcd';
 
 export default [
+  // {
+  //   slug: 'omg-a', // URL param
+  //   symbol: 'OMG-A', // how it's displayed in the UI
+  //   key: 'OMG-A', // the actual ilk name used in the vat
+  //   gem: 'OMG', // the actual asset that's being locked
+  //   currency: OMG, // the associated dai.js currency type
+  //   networks: ['kovan', 'mainnet', 'testnet', 'rinkeby', 'ropsten', 'goerli']
+  // },
   {
     slug: 'eth-a', // URL param
     symbol: 'ETH-A', // how it's displayed in the UI

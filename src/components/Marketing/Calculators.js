@@ -358,6 +358,12 @@ const cdpTypesMetaData = {
     amountRange: [200, 70000],
     amountStart: 100
   }
+  // 'OMG-A': {
+  //   text: 'OMG',
+  //   colRatio: 200,
+  //   amountRange: [200, 70000],
+  //   amountStart: 100
+  // }
 };
 
 const BorrowCalculator = ({ prices, cdpTypesList, ...props }) => {
@@ -366,6 +372,7 @@ const BorrowCalculator = ({ prices, cdpTypesList, ...props }) => {
 
   const interfaceLocale = lang.getInterfaceLanguage();
 
+  console.log('cdpTypesList', cdpTypesList);
   const ilks = cdpTypesList
     .map((cdpTypeName, index) => ({
       symbol: cdpTypeName,
@@ -378,6 +385,7 @@ const BorrowCalculator = ({ prices, cdpTypesList, ...props }) => {
     }));
 
   const selectedIlk = ilks.find(ilk => ilk.symbol === selectedSymbol);
+  console.log('ilks', ilks);
   const getTokenName = ilk => ilk.symbol.split('-')[0];
   const collateralAmounts = ilks.reduce((acc, ilk) => {
     acc[ilk.symbol] = ilk.amountStart;

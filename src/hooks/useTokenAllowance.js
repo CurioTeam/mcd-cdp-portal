@@ -25,10 +25,20 @@ export default function useTokenAllowance(tokenSymbol) {
   const [startedWithoutAllowance, setStartedWithoutAllowance] = useState(false);
   const [setAllowance, allowanceLoading, , allowanceErrors] = useActionState(
     async () => {
-      const token = maker.getToken(tokenSymbol);
-      const txPromise = token.approveUnlimited(proxyAddress);
-      setStartedWithoutAllowance(true);
-      return await txPromise;
+      console.log('setAllowance', tokenSymbol);
+      try {
+        const token = maker.getToken(tokenSymbol);
+        console.log('token', token);
+        const txPromise = token.approveUnlimited(proxyAddress);
+        console.log('txPromise', txPromise);
+        txPromise.catch(e => {
+          console.error('txPromise catch', e);
+        });
+        setStartedWithoutAllowance(true);
+        return await txPromise;
+      } catch (e) {
+        console.error('catch', e);
+      }
     }
   );
 

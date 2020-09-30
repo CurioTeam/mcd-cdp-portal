@@ -60,6 +60,12 @@ function MakerProvider({
         .find(acc => acc.address.toUpperCase() === address.toUpperCase());
     }
 
+    console.log(
+      'browserProvider.networkId',
+      browserProvider.networkId,
+      'networkId',
+      networkId
+    );
     if (browserProvider.networkId !== networkId)
       throw new Error(
         'browser ethereum provider and URL network param do not match.'

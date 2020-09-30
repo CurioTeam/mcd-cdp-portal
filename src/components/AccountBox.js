@@ -142,6 +142,8 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     }
   };
 
+  console.log('showWalletTokens', showWalletTokens);
+
   const tokenBalances = useMemo(
     () =>
       showWalletTokens.reduceRight((acc, token) => {
