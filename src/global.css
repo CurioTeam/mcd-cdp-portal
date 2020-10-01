@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Gilroy Regular';
+  src: url('/fonts/Gilroy-Regular.woff2') format('woff2'),
+  url('/fonts/Gilroy-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy Semibold';
+  src: url('/fonts/Gilroy-Semibold.woff2') format('woff2'),
+  url('/fonts/Gilroy-Semibold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
 *,
 *:before,
 *:after {
@@ -6,43 +21,165 @@
   flex-shrink: 0;
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue,
-    Roboto, Segoe UI, sans-serif;
-  color: #0E1029;
   overflow-y: scroll;
+}
+body, span[class*=indexesm__StyledSpan], p[class*=indexesm__StyledSpan] {
+  font-family: Gilroy Regular, sans-serif;
+  color: #0E1029;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@font-face {
-  font-family: 'FT Base';
-  src: url('/fonts/FTBase-Bold.woff2') format('woff2'),
-  url('/fonts/FTBase-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
+#root > div > div {
+  background: #F0F7F7;
 }
 
-@font-face {
-  font-family: 'FT Base';
-  src: url('/fonts/FTBase-Regular.woff2') format('woff2'),
-  url('/fonts/FTBase-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+.navbar-container {
+  padding: 10px;
+}
+.navbar {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(176, 215, 215, 0.25);
+  border-radius: 10px;
+  width: 60px;
+}
+.navbar .logo {
+  background: #5AE6D9;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
 }
 
-@font-face {
-  font-family: 'FT Base';
-  src: url('/fonts/FTBase-Medium.woff2') format('woff2'),
-  url('/fonts/FTBase-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
+div[class*=indexesm__Card] {
+  border: none;
+  box-shadow: 0px 10px 18px rgba(194, 215, 215, 0.3);
+  border-radius: 10px;
 }
 
-@font-face {
-  font-family: "SF Mono";
-  font-weight: 400;
-  src: url("/fonts/SFMono-Regular.otf");
-  font-style: normal;
+.dsr-card.cdp-view-card > div {
+  padding: 0;
+  background: 0;
+  border: 0;
+  box-shadow: none;
+}
+.dsr-card.cdp-view-card .rows {
+  margin: 0 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 18px rgba(176, 215, 215, 0.25);
+  border-radius: 10px;
+  padding: 10px 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.dsr-ticker {
+  background: #5AE6D9;
+  border-radius: 10px;
+  padding: 40px 20px;
+  margin: 0 !important;
+}
+.sidebar-container {
+  padding: 20px;
+  background: #DBE9E9;
+}
+button[class*=indexesm__StyledButton] {
+  background: #5AE6D9;
+  border-radius: 6px;
+  color: #243041;
+  opacity: 0.8;
+  border: none;
+
+  font-family: "Gilroy Semibold";
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+button[class*=indexesm__StyledButton]:hover {
+  opacity: 1;
+  background: #5AE6D9;
+}
+.empty-table-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sidebar-link svg {
+  margin-bottom: 5px;
+}
+.sidebar-link svg path {
+  fill: #B7BFCA;
+}
+.sidebar-link {
+  color: #B7BFCA;
+}
+.sidebar-link.selected {
+  color: #243041;
+}
+
+.sidebar-link.selected svg path {
+  fill: #5AE6D9;
+}
+
+.start-generating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.start-generating-container p {
+  margin-top: 25px;
+}
+.active-account {
+  padding: 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 18px rgba(194, 215, 215, 0.3);
+  border-radius: 10px;
+}
+.active-account .active-account-dot {
+  color: #5AE6D9;
+  font-size: 17px;
+  line-height: 8px;
+}
+.active-account .active-account-address {
+  margin-left: 3px;
+}
+.stepper-ui-steps > div > div {
+  grid-column-gap: initial !important;
+}
+.stepper-ui-steps > div > div > div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.stepper-ui-steps .stepper-bar {
+  position: relative;
+}
+.stepper-ui-steps .stepper-bar:after {
+  position: absolute;
+  content: "●";
+  top: -4px;
+  left: 50%;
+  background: #F0F7F7;
+  border-radius: 100%;
+  padding: 1px;
+  line-height: 9px;
+  color: #B7BFCA;
+  font-size: 32px;
+}
+.stepper-ui-steps .stepper-bar.selected:after {
+  color: #5AE6D9;
+}
+.stepper-ui-steps .stepper-bar > div {
+  background: #5AE6D9;
+}
+.stepper-ui-steps .stepper-text {
+  padding: 0 10px;
+  padding-bottom: 20px;
+  color: #B7BFCA;
+}
+.stepper-ui-steps .stepper-text.selected {
+  color: #243041;
 }

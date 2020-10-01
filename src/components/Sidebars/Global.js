@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import SidebarFeeds from 'components/SidebarFeeds';
+// import SidebarFeeds from 'components/SidebarFeeds';
 import SidebarSystem from 'components/SidebarSystem';
 import SidebarDetails from 'components/SidebarDetails';
 import { Box, Grid } from '@makerdao/ui-components-core';
@@ -25,7 +25,7 @@ const SidebarGlobalPanel = () => {
     return (
       <Box>
         <Grid gridRowGap="s">
-          {routeIsBorrow && <SidebarFeeds feeds={prices} />}
+          {/*{routeIsBorrow && <SidebarFeeds feeds={prices} />}*/}
           {routeIsBorrow && (
             <SidebarSystem
               system={{

@@ -44,6 +44,7 @@ export function prettifyNumber(
   decimalPlaces = 2,
   keepSymbol = true
 ) {
+  console.log('prettifyNumber', _num);
   if (_num === null) return null;
   let symbol = '';
   if (_num.symbol !== undefined) symbol += ' ' + cleanSymbol(_num.symbol);
@@ -93,7 +94,10 @@ export function firstLetterLowercase(str) {
 }
 
 export function cleanSymbol(s) {
-  if (s === 'DSR-DAI') return 'DAI';
+  s = s === 'DSR-DAI' ? 'DAI' : s;
+  //TODO: avoid hotfix
+  s = s === 'DAI' ? 'CSC' : s;
+  s = s === 'MANA' ? 'CT1' : s;
   return s;
 }
 
@@ -102,6 +106,10 @@ export const shortenAddress = address =>
 
 export function formatEventDescription(lang, e) {
   const interfaceLocale = lang.getInterfaceLanguage();
+  let gem = e.gem;
+  //TODO: avoid hotfix
+  gem = gem === 'DAI' ? 'CSC' : gem;
+  gem = gem === 'MANA' ? 'CT1' : gem;
   switch (e.type) {
     case 'OPEN':
       return lang.formatString(lang.event_history.open, <b>{e.id}</b>);
@@ -109,31 +117,31 @@ export function formatEventDescription(lang, e) {
       return lang.formatString(
         lang.event_history.deposit,
         <b>{prettifyCurrency(interfaceLocale, e.amount, 2)}</b>,
-        e.gem
+        gem
       );
     case 'RECLAIM':
       return lang.formatString(
         lang.event_history.reclaim,
         <b>{prettifyCurrency(interfaceLocale, e.amount, 2)}</b>,
-        e.gem
+        gem
       );
     case 'DSR_DEPOSIT':
       return lang.formatString(
         lang.event_history.dsr_deposit,
         <b>{prettifyCurrency(interfaceLocale, e.amount, 2)}</b>,
-        e.gem
+        gem
       );
     case 'DSR_WITHDRAW':
       return lang.formatString(
         lang.event_history.dsr_withdraw,
         <b>{prettifyCurrency(interfaceLocale, e.amount, 2)}</b>,
-        e.gem
+        gem
       );
     case 'WITHDRAW':
       return lang.formatString(
         lang.event_history.withdraw,
         <b>{prettifyCurrency(interfaceLocale, e.amount, 2)}</b>,
-        e.gem
+        gem
       );
     case 'GENERATE':
       return lang.formatString(
@@ -157,7 +165,7 @@ export function formatEventDescription(lang, e) {
       return lang.formatString(
         lang.event_history.bite,
         <b>{prettifyCurrency(interfaceLocale, e.amount, 2)}</b>,
-        e.gem
+        gem
       );
     default:
       return '?';

@@ -22,9 +22,11 @@ const DashboardLayout = ({ mobileNav, navbar, children }) => {
       width="100%"
     >
       <Box display={{ s: 'block', l: 'none' }}>{mobileNav}</Box>
-      <Box display={{ s: 'none', l: 'block' }}>{navbar}</Box>
+      <Box display={{ s: 'none', l: 'block' }} className="navbar-container">
+        {navbar}
+      </Box>
       {children}
-      <Box display={{ s: 'none', l: 'block' }}>
+      <Box display={{ s: 'none', l: 'block' }} className="sidebar-container">
         <SidebarBase />
       </Box>
     </Grid>

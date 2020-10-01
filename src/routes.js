@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { map, route, mount, withView, compose } from 'navi';
+import { map, route, mount, withView, compose, redirect } from 'navi';
 import { View } from 'react-navi';
 
 import Navbar from 'components/Navbar';
 import DashboardLayout from 'layouts/DashboardLayout';
 import MarketingLayout from './layouts/MarketingLayout';
-import Landing from 'pages/Landing';
+// import Landing from 'pages/Landing';
 import Overview from 'pages/Overview';
 import Borrow from 'pages/Borrow';
 import BorrowWBTCLanding from 'pages/BorrowWBTCLanding';
@@ -26,7 +26,7 @@ import TransactionManagerProvider from 'providers/TransactionManagerProvider';
 import NotificationProvider from 'providers/NotificationProvider';
 import config from 'references/config';
 import MobileNav from 'components/MobileNav';
-import { userSnapInit } from 'utils/analytics';
+// import { userSnapInit } from 'utils/analytics';
 import { Routes } from 'utils/constants';
 
 const { networkNames, defaultNetwork } = config;
@@ -88,7 +88,7 @@ const marketingLayoutView = () => (
 );
 
 export default mount({
-  '/': withView(() => <Landing />),
+  '/': map(() => redirect(`/${Routes.BORROW}`)),
 
   [`/${Routes.BORROW}`]: compose(
     withView(dappProvidersView),
@@ -163,8 +163,8 @@ export default mount({
 
 function RouteEffects({ network }) {
   useEffect(() => {
-    if (network !== 'mainnet' && window.location.hostname !== 'localhost')
-      userSnapInit();
+    // if (network !== 'mainnet' && window.location.hostname !== 'localhost')
+    // userSnapInit();
   }, [network]);
   return null;
 }

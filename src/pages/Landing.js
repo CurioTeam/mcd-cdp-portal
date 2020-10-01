@@ -18,7 +18,7 @@ import { Routes } from 'utils/constants';
 import useLanguage from 'hooks/useLanguage';
 import { getColor, marketingTheme } from 'styles/theme';
 
-import { ReactComponent as TradeIcon } from 'images/landing/trade-icon.svg';
+// import { ReactComponent as TradeIcon } from 'images/landing/trade-icon.svg';
 import { ReactComponent as BorrowIcon } from 'images/landing/borrow-icon.svg';
 import { ReactComponent as SaveIcon } from 'images/landing/save-icon.svg';
 import { Box, Grid, Text } from '@makerdao/ui-components-core';
@@ -121,32 +121,32 @@ const Cards = (() => {
 
     return (
       <CardsContainer {...props}>
-        <Card
-          style={{
-            background:
-              'radial-gradient(111.67% 100% at 0% 0%, #F2FFE6 0%, #C6FFF9 100%)'
-          }}
-        >
-          <TradeIcon />
-          <h1 className="title">{lang.landing_page.trade_card.title}</h1>
-          <Text className="description">
-            {lang.landing_page.trade_card.description}
-          </Text>
-          <div className="buttonContainer">
-            <Link
-              href={`/${Routes.TRADE}`}
-              onClick={() => {
-                mixpanel.track('btn-click', {
-                  id: 'StartTrading',
-                  product: 'oasis-landing'
-                });
-              }}
-              className="button-link"
-            >
-              <FilledButton>{lang.landing_page.trade_card.button}</FilledButton>
-            </Link>
-          </div>
-        </Card>
+        {/*<Card*/}
+        {/*  style={{*/}
+        {/*    background:*/}
+        {/*      'radial-gradient(111.67% 100% at 0% 0%, #F2FFE6 0%, #C6FFF9 100%)'*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <TradeIcon />*/}
+        {/*  <h1 className="title">{lang.landing_page.trade_card.title}</h1>*/}
+        {/*  <Text className="description">*/}
+        {/*    {lang.landing_page.trade_card.description}*/}
+        {/*  </Text>*/}
+        {/*  <div className="buttonContainer">*/}
+        {/*    <Link*/}
+        {/*      href={`/${Routes.TRADE}`}*/}
+        {/*      onClick={() => {*/}
+        {/*        mixpanel.track('btn-click', {*/}
+        {/*          id: 'StartTrading',*/}
+        {/*          product: 'oasis-landing'*/}
+        {/*        });*/}
+        {/*      }}*/}
+        {/*      className="button-link"*/}
+        {/*    >*/}
+        {/*      <FilledButton>{lang.landing_page.trade_card.button}</FilledButton>*/}
+        {/*    </Link>*/}
+        {/*  </div>*/}
+        {/*</Card>*/}
         <Card
           style={{
             background:
@@ -293,7 +293,6 @@ const SupportedTokens = (() => {
     }
 
     span.onlyOnTrade:after {
-      font-family: 'Arial Hebrew', Arial, sans-serif;
       content: '*';
       font-size: 2.7rem;
       position: absolute;

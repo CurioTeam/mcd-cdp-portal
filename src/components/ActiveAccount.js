@@ -20,8 +20,17 @@ const ActiveAccount = ({
   const providerType =
     type === 'browser' ? getWebClientProviderName(type) : type;
   return (
-    <Flex justifyContent="space-between" alignItems="center" {...rest}>
-      <Text fontSize="0.8rem" color={address ? 'makerTeal' : 'makerOrange'}>
+    <Flex
+      justifyContent="space-between"
+      className="active-account"
+      alignItems="center"
+      {...rest}
+    >
+      <Text
+        fontSize="0.8rem"
+        className="active-account-dot"
+        color={address ? 'makerTeal' : 'makerOrange'}
+      >
         ●
       </Text>
 
@@ -30,7 +39,7 @@ const ActiveAccount = ({
           {address ? lang.providers[providerType] : lang.sidebar.no_wallet}
         </Text>
       </Box>
-      <Box ml="s">
+      <Box ml="s" className="active-account-address">
         {address ? (
           <Text t={addressTextStyle} color={textColor} fontSize="1.4rem">
             {cutMiddle(address, 7, 5)}

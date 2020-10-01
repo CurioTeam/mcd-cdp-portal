@@ -10,7 +10,7 @@ import SidebarGlobal from './Sidebars/Global';
 import AccountBox from './AccountBox';
 import BorrowNav from 'components/BorrowNav';
 import SaveNav from 'components/SaveNav';
-import TradeNav from 'components/TradeNav';
+// import TradeNav from 'components/TradeNav';
 
 import { Flex, Box } from '@makerdao/ui-components-core';
 import useMaker from 'hooks/useMaker';
@@ -98,11 +98,11 @@ const MobileNav = ({ viewedAddress }) => {
           borderRadius="4px"
           ml="xs"
         />
-        <TradeNav
-          borderRadius="4px"
-          width={`${getMeasurement('navbarWidth')}px`}
-          ml="xs"
-        />
+        {/*<TradeNav*/}
+        {/*  borderRadius="4px"*/}
+        {/*  width={`${getMeasurement('navbarWidth')}px`}*/}
+        {/*  ml="xs"*/}
+        {/*/>*/}
       </Flex>
       <Flex alignItems="center" justifyContent="center">
         <SidebarDrawerTrigger

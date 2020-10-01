@@ -38,41 +38,45 @@ class StepperUI extends React.Component {
   render() {
     // return <Box minHeight="100vh" height="1200px"/>
     return (
-      <Grid gridTemplateRows="auto 1fr" gridRowGap="m" mb="xl">
-        {this.props.renderStepperHeader()}
+      <div className="stepper-ui">
+        <Grid gridTemplateRows="auto 1fr" mb="xl">
+          {this.props.renderStepperHeader()}
 
-        <Grid
-          maxWidth="1600px"
-          m="0 auto"
-          alignItems="start"
-          alignContent="start"
-          gridRowGap={{ s: 'm', m: '2xl' }}
-        >
-          <Flex justifyContent="center">
-            <Stepper
-              minWidth="200px"
-              steps={this.props.steps}
-              selected={this.props.step}
-            />
-          </Flex>
-
-          <div
-            style={{ width: '100%', maxWidth: '100vw', position: 'relative' }}
+          <Grid
+            maxWidth="1600px"
+            m="0 auto"
+            alignItems="start"
+            alignContent="start"
+            gridRowGap={{ s: 'm', m: 'm' }}
           >
-            {React.Children.map(this.props.children, (child, index) => {
-              return (
-                <FadeIn
-                  toLeft={index < this.props.step}
-                  toRight={index > this.props.step}
-                  active={index === this.props.step}
-                >
-                  {index === this.props.step && child}
-                </FadeIn>
-              );
-            })}
-          </div>
+            <Flex justifyContent="center">
+              <div className="stepper-ui-steps">
+                <Stepper
+                  minWidth="200px"
+                  steps={this.props.steps}
+                  selected={this.props.step}
+                />
+              </div>
+            </Flex>
+
+            <div
+              style={{ width: '100%', maxWidth: '100vw', position: 'relative' }}
+            >
+              {React.Children.map(this.props.children, (child, index) => {
+                return (
+                  <FadeIn
+                    toLeft={index < this.props.step}
+                    toRight={index > this.props.step}
+                    active={index === this.props.step}
+                  >
+                    {index === this.props.step && child}
+                  </FadeIn>
+                );
+              })}
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     );
   }
 }

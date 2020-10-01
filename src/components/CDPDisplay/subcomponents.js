@@ -97,10 +97,15 @@ export const ActionButton = ({ children, ...props }) => (
   </Button>
 );
 
-export const CdpViewCard = ({ title, children }) => {
+export const CdpViewCard = ({ title, children, className }) => {
   return (
-    <Flex py="s" height="100%" flexDirection="column">
-      <Text.h4>{title}</Text.h4>
+    <Flex
+      py="s"
+      height="100%"
+      flexDirection="column"
+      className={(className || '') + ' cdp-view-card'}
+    >
+      {title ? <Text.h4>{title}</Text.h4> : ''}
       <Card px={{ s: 'm', m: 'l' }} py="s" mt="s" flexGrow="1">
         {children}
       </Card>

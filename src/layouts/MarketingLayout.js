@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-navi';
 import { Routes } from 'utils/constants';
 import useLanguage from 'hooks/useLanguage';
-import CookieNotice from '../components/CookieNotice';
+// import CookieNotice from '../components/CookieNotice';
 import { hot } from 'react-hot-loader/root';
 import { getColor, marketingTheme } from 'styles/theme';
 import { Box, Flex } from '@makerdao/ui-components-core';
@@ -15,10 +15,6 @@ const MarketingLayoutStyle = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: auto;
 
-  font-family: 'FT Base', Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  letter-spacing: normal;
   text-align: center;
   color: ${getColor('purpleGray')};
   width: 100%;
@@ -61,13 +57,13 @@ const MainNav = ({ onLinkClicked, ...props }) => {
 
   return (
     <MainNavStyle {...props}>
-      <Link
-        href={`/${Routes.TRADE}`}
-        activeStyle={{ fontWeight: 'bold' }}
-        onClick={() => onLinkClicked && onLinkClicked()}
-      >
-        {lang.navbar.trade}
-      </Link>
+      {/*<Link*/}
+      {/*  href={`/${Routes.TRADE}`}*/}
+      {/*  activeStyle={{ fontWeight: 'bold' }}*/}
+      {/*  onClick={() => onLinkClicked && onLinkClicked()}*/}
+      {/*>*/}
+      {/*  {lang.navbar.trade}*/}
+      {/*</Link>*/}
       <Link
         href={`/${Routes.BORROW}`}
         activeStyle={{ fontWeight: 'bold' }}
@@ -82,7 +78,7 @@ const MainNav = ({ onLinkClicked, ...props }) => {
       >
         {lang.navbar.save}
       </Link>
-      <Link href="https://blog.oasis.app/">{lang.navbar.blog}</Link>
+      {/*<Link href="https://blog.oasis.app/">{lang.navbar.blog}</Link>*/}
     </MainNavStyle>
   );
 };
@@ -347,26 +343,26 @@ const MarketingLayout = ({ showNavInFooter, children }) => {
           </Box>
         </MobileMenu>
         {children}
-        <CookieNotice />
+        {/*<CookieNotice />*/}
         <Footer>
           <div className="navs">
-            {showNavInFooter && (
-              <Flex
-                display={{ s: 'none', xl: 'inline-flex' }}
-                alignItems="center"
-              >
-                <MainNav fontSize="16px" separation="52px" />
-                <SeparatorDot m="0 38px" />
-              </Flex>
-            )}
-            <Nav className="legal-nav">
-              <Link href={`/${Routes.PRIVACY}`}>{lang.navbar.privacy}</Link>
-              <Link href={`/${Routes.TERMS}`}>{lang.navbar.terms}</Link>
-            </Nav>
+            {/*{showNavInFooter && (*/}
+            {/*  <Flex*/}
+            {/*    display={{ s: 'none', xl: 'inline-flex' }}*/}
+            {/*    alignItems="center"*/}
+            {/*  >*/}
+            {/*    <MainNav fontSize="16px" separation="52px" />*/}
+            {/*    <SeparatorDot m="0 38px" />*/}
+            {/*  </Flex>*/}
+            {/*)}*/}
+            {/*<Nav className="legal-nav">*/}
+            {/*  <Link href={`/${Routes.PRIVACY}`}>{lang.navbar.privacy}</Link>*/}
+            {/*  <Link href={`/${Routes.TERMS}`}>{lang.navbar.terms}</Link>*/}
+            {/*</Nav>*/}
           </div>
-          <div className="copyright">
-            © {new Date().getFullYear()} Maker Ecosystem Growth Holdings, Inc.
-          </div>
+          {/*<div className="copyright">*/}
+          {/*  © {new Date().getFullYear()} Maker Ecosystem Growth Holdings, Inc.*/}
+          {/*</div>*/}
         </Footer>
       </MarketingLayoutStyle>
     </ThemeProvider>

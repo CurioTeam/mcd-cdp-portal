@@ -27,8 +27,7 @@ const theme = {
       fontSize: '1.8rem',
       lineHeight: '1',
       fontWeight: '500',
-      fontFamily:
-        "-apple-system, system-ui, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;",
+      fontFamily: "'Gilroy Regular', Arial, Helvetica, sans-serif;",
       color: '#231536'
     },
     smallCaps: {
@@ -41,7 +40,7 @@ const theme = {
     ...typography
   },
   measurement: {
-    sidebarWidth: 318,
+    sidebarWidth: 368,
     navbarWidth: 80,
     mobileNavHeight: 80,
     navbarItemWidth: 70,
@@ -65,7 +64,7 @@ export const marketingTheme = (() => {
     purpleGray: '#2F3044',
     violetGray: '#443854'
   };
-  const mFont = "'FT Base', Arial, Helvetica, sans-serif";
+  const mFont = "'Gilroy Regular', Arial, Helvetica, sans-serif";
   const mHeading = {
     display: 'block',
     fontFamily: mFont,

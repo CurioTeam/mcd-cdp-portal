@@ -55,6 +55,13 @@ const TokenBalance = ({
   hasActiveAccount,
   ...props
 }) => {
+  //TODO: avoid hotfix
+  if (symbol === 'DAI') {
+    symbol = 'CSC';
+  }
+  if (symbol === 'MANA') {
+    symbol = 'CT1';
+  }
   return (
     <Flex
       key={`wb_${symbol}`}
@@ -141,6 +148,8 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
       showSidebar(props);
     }
   };
+
+  // console.log('showWalletTokens', showWalletTokens);
 
   const tokenBalances = useMemo(
     () =>

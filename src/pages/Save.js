@@ -144,7 +144,7 @@ function Save({ viewedAddress }) {
               isMobile={isMobile}
               savings={savings}
             />
-            <CdpViewCard title={lang.save.deposit_withdraw}>
+            <CdpViewCard>
               <ActionContainerRow
                 title={lang.save.deposit_btn_cta}
                 button={

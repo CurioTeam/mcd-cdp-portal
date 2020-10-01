@@ -2278,10 +2278,9 @@
     hdkey "^1.0.0"
     web3-provider-engine "14.0.4"
 
-"@makerdao/dai-plugin-mcd@^1.5.14":
-  version "1.5.14"
-  resolved "https://registry.yarnpkg.com/@makerdao/dai-plugin-mcd/-/dai-plugin-mcd-1.5.14.tgz#f08c23d80c743ca7d84789fe96b13fbac06f5751"
-  integrity sha512-k7JaRLr8Uq59POYxaZbvsH6rSxJ4tVI1q0NDf2f9+yJr+NEd4crlEoniXevA0d6mljcx7Iu/lq9buXCgSwM7hg==
+"@makerdao/dai-plugin-mcd@https://github.com/CurioTeam/dai-plugin-mcd.git#1df2138":
+  version "1.5.16"
+  resolved "https://github.com/CurioTeam/dai-plugin-mcd.git#1df21385ed7fd4b204dd836895b47dd3bad2f38c"
   dependencies:
     "@makerdao/currency" "^0.9.9"
     "@makerdao/services-core" "^0.9.9"
@@ -2452,10 +2451,9 @@
   dependencies:
     ganache-cli makerdao/ganache-cli#fix/gas-est-crash
 
-"@makerdao/ui-components-core@0.3.4":
+"@makerdao/ui-components-core@git+ssh://git@github.com/CurioTeam/maker-ui-components-core.git#b3baf2e":
   version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@makerdao/ui-components-core/-/ui-components-core-0.3.4.tgz#508660d3c02a74e233d138e0bc44df29758fb19e"
-  integrity sha512-sLpTfIkmn5bsPJG2mO9fdW5l/aWyFOf2z500PFdBDl1IBbIwYxBetW3Tq0+7goKWtfRY7NzMLvOI+8pEYrC3eQ==
+  resolved "git+ssh://git@github.com/CurioTeam/maker-ui-components-core.git#b3baf2ebb01274390cdd9ff345012fbe2b3a42f5"
   dependencies:
     "@makerdao/design-system-constants" "^0.2.1"
     react-onclickoutside "^6.7.1"

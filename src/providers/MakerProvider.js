@@ -60,6 +60,12 @@ function MakerProvider({
         .find(acc => acc.address.toUpperCase() === address.toUpperCase());
     }
 
+    console.log(
+      'browserProvider.networkId',
+      browserProvider.networkId,
+      'networkId',
+      networkId
+    );
     if (browserProvider.networkId !== networkId)
       throw new Error(
         'browser ethereum provider and URL network param do not match.'
@@ -103,6 +109,7 @@ function MakerProvider({
 
       // Register multicall schemas and map useObservable hook to watch convenience helper
       const multicall = newMaker.service('multicall');
+      // multicall.setAddresses(newMaker.)
       multicall.registerSchemas({ ...schemas });
       multicall.observableKeys.forEach(
         key => (watch[key] = (...args) => useObservable(key, ...args)) // eslint-disable-line react-hooks/rules-of-hooks

@@ -6,6 +6,8 @@ import McdPlugin, {
   USD,
   DAI,
   SAI,
+  CSC,
+  CT1,
   defaultCdpTypes
 } from '@makerdao/dai-plugin-mcd';
 import trezorPlugin from '@makerdao/dai-plugin-trezor-web';
@@ -17,10 +19,13 @@ import configPlugin from '@makerdao/dai-plugin-config';
 import networkConfig from './references/config';
 import { networkNameToId } from './utils/network';
 import { getQueryParamByName } from './utils/dev';
+import ilkList from './references/ilkList';
+import abiMap from '@makerdao/dai-plugin-mcd/contracts/abiMap';
 
 import rinkebyAddresses from './references/contracts/rinkeby';
 import goerliAddresses from './references/contracts/goerli';
 import ropstenAddresses from './references/contracts/ropsten';
+import kovanAddresses from './references/contracts/kovan';
 
 let _maker;
 
@@ -30,7 +35,8 @@ const otherNetworksOverrides = [
     contracts: rinkebyAddresses
   },
   { network: 'goerli', contracts: goerliAddresses },
-  { network: 'ropsten', contracts: ropstenAddresses }
+  { network: 'ropsten', contracts: ropstenAddresses },
+  { network: 'kovan', contracts: kovanAddresses }
 ].reduce((acc, { network, contracts }) => {
   for (const [contractName, contractAddress] of Object.entries(contracts)) {
     if (!acc[contractName]) acc[contractName] = {};
@@ -50,20 +56,53 @@ export async function instantiateMaker({
   testchainId,
   backendEnv
 }) {
-  const addressOverrides = ['rinkeby', 'ropsten', 'goerli'].some(
+  const addressOverrides = ['rinkeby', 'ropsten', 'goerli', 'kovan'].some(
     networkName => networkName === network
   )
     ? otherNetworksOverrides
     : {};
 
+  console.log('addressOverrides', addressOverrides);
+  const configCdpTypes = defaultCdpTypes
+    .filter(type => {
+      console.log('type', type, 'ilkList', ilkList);
+      return !ilkList.some(item => item.symbol === type.ilk);
+    })
+    // .concat([
+    //   { currency: CSC, ilk: 'CSC-A', abi: abiMap['MCD_DAI'] }
+    // ])
+    .concat(
+      ilkList.map(ilk => ({
+        ilk: ilk.symbol,
+        currency: ilk.currency,
+        abi: abiMap['OMG']
+      }))
+    );
+
+  console.log('configCdpTypes', configCdpTypes);
   const mcdPluginConfig = {
-    defaultCdpTypes,
+    defaultCdpTypes: configCdpTypes,
+    cdpTypes: configCdpTypes,
     prefetch: false,
     addressOverrides
   };
   const walletLinkPluginConfig = {
     rpcUrl: networkConfig.rpcUrls[networkNameToId(network)]
   };
+
+  const addContracts = {};
+  //'CSC',
+  ['CT1'].concat(Object.keys(addressOverrides)).forEach(symbol => {
+    addContracts[symbol] = [
+      {
+        abi: abiMap[symbol] || abiMap['OMG'],
+        address: addressOverrides[symbol][network],
+        version: 1
+      }
+    ];
+  });
+
+  // console.log('addContracts', addContracts);
 
   const config = {
     log: false,
@@ -76,7 +115,8 @@ export async function instantiateMaker({
       [McdPlugin, mcdPluginConfig]
     ],
     smartContract: {
-      addressOverrides
+      addressOverrides,
+      addContracts
     },
     provider: {
       url: rpcUrl,
@@ -118,4 +158,4 @@ export async function instantiateMaker({
   return maker;
 }
 
-export { USD, DAI, ETH, BAT, SAI, USDC };
+export { USD, DAI, ETH, BAT, SAI, USDC, CSC, CT1 };

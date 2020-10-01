@@ -99,7 +99,7 @@ const Generate = ({ vault, reset }) => {
           value={amount}
           min="0"
           onChange={onAmountChange}
-          placeholder="0.00 DAI"
+          placeholder="0.00 CSC"
           failureMessage={failureMessage}
         />
         <RatioDisplay
@@ -138,7 +138,7 @@ const Generate = ({ vault, reset }) => {
       <InfoContainer>
         <Info
           title={lang.action_sidebar.maximum_available_to_generate}
-          body={`${formatter(daiAvailable, { precision: long })} DAI`}
+          body={`${formatter(daiAvailable, { precision: long })} CSC`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}

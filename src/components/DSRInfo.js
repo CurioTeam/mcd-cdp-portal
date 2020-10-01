@@ -232,8 +232,8 @@ function DSRInfo({ isMobile, savings }) {
   ]);
 
   return (
-    <CdpViewCard title={lang.save.dai_locked_dsr}>
-      <Flex alignItems="flex-end" mt="s" mb="xs">
+    <CdpViewCard className="dsr-card">
+      <Flex alignItems="flex-end" mt="s" mb="xs" className="dsr-ticker">
         <Ticker
           key={`${proxyAddress}.${balance.toString()}.${amountChange}.${decimalsToShow}`}
           amount={balance.toNumber()}
@@ -243,46 +243,50 @@ function DSRInfo({ isMobile, savings }) {
         />
         <Box>
           <Text.h4 mb=".175rem" ml="s">
-            DAI
+            CSC
           </Text.h4>
         </Box>
       </Flex>
-      <InfoContainerRow
-        title={
-          <TextBlock fontSize="l">{lang.save.savings_earned_to_date}</TextBlock>
-        }
-        value={
-          <>
-            {earningsDispatched ? (
-              <Ticker
-                key={`${proxyAddress}.${earnings.toString()}.${amountChange}.${decimalsToShow}`}
-                amount={earnings.toNumber()}
-                increment={amountChange.toNumber()}
-                decimals={decimalsToShow}
-                t="body"
-              />
+      <div className="rows">
+        <InfoContainerRow
+          title={
+            <TextBlock fontSize="l">
+              {lang.save.savings_earned_to_date}
+            </TextBlock>
+          }
+          value={
+            <>
+              {earningsDispatched ? (
+                <Ticker
+                  key={`${proxyAddress}.${earnings.toString()}.${amountChange}.${decimalsToShow}`}
+                  amount={earnings.toNumber()}
+                  increment={amountChange.toNumber()}
+                  decimals={decimalsToShow}
+                  t="body"
+                />
+              ) : (
+                <TextMono t="body">{(0).toFixed(decimalsToShow)}</TextMono>
+              )}
+              <Text ml="xs">SCS</Text>
+            </>
+          }
+        />
+        <InfoContainerRow
+          title={lang.save.dai_savings_rate}
+          value={
+            annualDaiSavingsRate ? (
+              <TextMono>
+                {formatter(annualDaiSavingsRate, {
+                  rounding: BigNumber.ROUND_HALF_UP
+                })}
+                %
+              </TextMono>
             ) : (
-              <TextMono t="body">{(0).toFixed(decimalsToShow)}</TextMono>
-            )}
-            <Text ml="xs">DAI</Text>
-          </>
-        }
-      />
-      <InfoContainerRow
-        title={lang.save.dai_savings_rate}
-        value={
-          annualDaiSavingsRate ? (
-            <TextMono>
-              {formatter(annualDaiSavingsRate, {
-                rounding: BigNumber.ROUND_HALF_UP
-              })}
-              %
-            </TextMono>
-          ) : (
-            '--'
-          )
-        }
-      />
+              '--'
+            )
+          }
+        />
+      </div>
     </CdpViewCard>
   );
 }

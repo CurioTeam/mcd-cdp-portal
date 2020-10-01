@@ -29,12 +29,17 @@ const CDPCreateSetAllowance = ({ selectedIlk, isFirstVault, dispatch }) => {
     allowanceLoading: isSettingAllowance
   } = useTokenAllowance(selectedIlk.gem);
 
+  let gem = selectedIlk.gem;
+  //TODO: avoid hotfix
+  gem = gem === 'DAI' ? 'CSC' : gem;
+  gem = gem === 'MANA' ? 'CT1' : gem;
+
   const labels = {
     setup_text: lang.cdp_create.setup_proxy_proxy_text,
     setup_header: lang.cdp_create.setup_vault,
     allowance_text: lang.formatString(
       lang.cdp_create.setup_proxy_allowance_text,
-      selectedIlk.gem
+      gem
     ),
     confirmations_text: lang.formatString(
       lang.cdp_create.waiting_for_comfirmations,

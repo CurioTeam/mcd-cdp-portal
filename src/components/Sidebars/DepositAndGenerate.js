@@ -185,7 +185,7 @@ const DepositAndGenerate = ({ vault, reset }) => {
           value={generateAmount}
           min="0"
           onChange={onGenerateAmountChange}
-          placeholder="0.00 DAI"
+          placeholder="0.00 CSC"
           failureMessage={generateFailureMessage}
         />
       </Grid>
@@ -211,7 +211,7 @@ const DepositAndGenerate = ({ vault, reset }) => {
         />
         <Info
           title={lang.action_sidebar.maximum_available_to_generate}
-          body={`${formatter(calculatedDaiAvailable, { precision: long })} DAI`}
+          body={`${formatter(calculatedDaiAvailable, { precision: long })} CSC`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}

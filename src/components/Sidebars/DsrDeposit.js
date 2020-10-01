@@ -42,9 +42,9 @@ const DsrDeposit = ({ savings, reset }) => {
     },
     {
       maxFloat: () =>
-        lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI'),
+        lang.formatString(lang.action_sidebar.insufficient_balance, 'CSC'),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'CSC')
     }
   );
 
@@ -81,7 +81,7 @@ const DsrDeposit = ({ savings, reset }) => {
           disabled={!hasAllowance}
           type="number"
           min="0"
-          placeholder="0 DAI"
+          placeholder="0 CSC"
           value={depositAmount}
           onChange={onDepositAmountChange}
           error={depositAmountErrors}

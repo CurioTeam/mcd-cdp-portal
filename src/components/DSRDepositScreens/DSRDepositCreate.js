@@ -22,7 +22,7 @@ function DepositDaiForm({
 
   const fields = [
     [
-      lang.formatString(lang.dsr_deposit.deposit_form_title, 'DAI'),
+      lang.formatString(lang.dsr_deposit.deposit_form_title, 'CSC'),
       <Input
         key="daiinput"
         name="gemsToLock"
@@ -32,12 +32,12 @@ function DepositDaiForm({
         onChange={onDepositAmountChange}
         failureMessage={depositAmountErrors}
         min="0"
-        placeholder="0 DAI"
+        placeholder="0 CSC"
       />,
       <Box key="ba">
         <Text t="subheading">{lang.your_balance} </Text>
         <Text t="caption" display="inline-block" ml="s" color="darkLavender">
-          {prettifyNumber(daiBalance)} {'DAI'}
+          {prettifyNumber(daiBalance)} {'CSC'}
         </Text>
       </Box>
     ]
@@ -94,9 +94,9 @@ const DSRDepositCreate = ({ dispatch, onClose }) => {
     },
     {
       maxFloat: () =>
-        lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI'),
+        lang.formatString(lang.action_sidebar.insufficient_balance, 'CSC'),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'CSC')
     }
   );
 

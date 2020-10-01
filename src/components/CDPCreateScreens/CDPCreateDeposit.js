@@ -56,20 +56,19 @@ function OpenCDPForm({
     BigNumber(cdpParams.daiToDraw === '' ? '0' : cdpParams.daiToDraw)
   );
 
+  let gem = selectedIlk.gem;
+  //TODO: avoid hotfix
+  gem = gem === 'DAI' ? 'CSC' : gem;
+  gem = gem === 'MANA' ? 'CT1' : gem;
+
   const fields = [
     [
-      lang.formatString(
-        lang.cdp_create.deposit_form_field1_title,
-        selectedIlk.gem
-      ),
-      lang.formatString(
-        lang.cdp_create.deposit_form_field1_text,
-        selectedIlk.gem
-      ),
+      lang.formatString(lang.cdp_create.deposit_form_field1_title, gem),
+      lang.formatString(lang.cdp_create.deposit_form_field1_text, gem),
       <Input
         key="collinput"
         name="gemsToLock"
-        after={selectedIlk.gem}
+        after={gem}
         type="number"
         value={cdpParams.gemsToLock}
         onChange={handleInputChange}
@@ -80,14 +79,8 @@ function OpenCDPForm({
                 cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
               )
               ? null
-              : lang.formatString(
-                  lang.action_sidebar.invalid_allowance,
-                  selectedIlk.gem
-                )
-            : lang.formatString(
-                lang.cdp_create.insufficient_ilk_balance,
-                selectedIlk.gem
-              )
+              : lang.formatString(lang.action_sidebar.invalid_allowance, gem)
+            : lang.formatString(lang.cdp_create.insufficient_ilk_balance, gem)
         }
       />,
       <Box key="ba">
@@ -109,7 +102,7 @@ function OpenCDPForm({
           {selectedIlk.gem === 'USDC'
             ? prettifyNumber(selectedIlk.userGemBalance, { truncate: true })
             : prettifyNumber(selectedIlk.userGemBalance)}{' '}
-          {selectedIlk.gem}
+          {gem}
         </Text>
       </Box>
     ],
@@ -119,7 +112,7 @@ function OpenCDPForm({
       <Input
         key="daiToDraw"
         name="daiToDraw"
-        after="DAI"
+        after="CSC"
         width={300}
         type="number"
         failureMessage={
@@ -152,12 +145,12 @@ function OpenCDPForm({
               handleInputChange({
                 target: {
                   name: 'daiToDraw',
-                  value: formatter(daiAvailableToGenerate)
+                  value: formatter(daiAvailableToGenerate * 0.99)
                 }
               });
             }}
           >
-            {formatter(daiAvailableToGenerate)} DAI
+            {formatter(daiAvailableToGenerate)} CSC
           </Text>
         </Box>
         <RatioDisplay
@@ -227,6 +220,11 @@ const CDPCreateDepositSidebar = ({
   );
   if ([Infinity, 'Infinity'].includes(liquidationPriceDisplay))
     liquidationPriceDisplay = '0.0000';
+
+  let gem = selectedIlk.gem;
+  //TODO: avoid hotfix
+  gem = gem === 'DAI' ? 'CSC' : gem;
+  gem = gem === 'MANA' ? 'CT1' : gem;
   return (
     <Grid gridRowGap="m">
       {[
@@ -249,7 +247,7 @@ const CDPCreateDepositSidebar = ({
         ],
         [lang.liquidation_price, `$${liquidationPriceDisplay}`],
         [
-          lang.formatString(lang.current_ilk_price, selectedIlk.gem),
+          lang.formatString(lang.current_ilk_price, gem),
           `$${formatter(collateralTypePrice)}`
         ],
         [
@@ -316,6 +314,10 @@ const CDPCreateDeposit = ({
       daiAvailable
     ) && hasSufficientAllowance(cdpParams.gemsToLock);
 
+  let gem = selectedIlk.gem;
+  //TODO: avoid hotfix
+  gem = gem === 'DAI' ? 'CSC' : gem;
+  gem = gem === 'MANA' ? 'CT1' : gem;
   return (
     <Box
       maxWidth="1040px"
@@ -324,10 +326,7 @@ const CDPCreateDeposit = ({
       `}
     >
       <ScreenHeader
-        title={lang.formatString(
-          lang.cdp_create.deposit_title,
-          selectedIlk.gem
-        )}
+        title={lang.formatString(lang.cdp_create.deposit_title, gem)}
         text={lang.cdp_create.deposit_text}
       />
       <Grid

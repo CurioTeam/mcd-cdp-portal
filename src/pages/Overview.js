@@ -23,6 +23,7 @@ import useAnalytics from 'hooks/useAnalytics';
 import useVaults from 'hooks/useVaults';
 import useEmergencyShutdown from 'hooks/useEmergencyShutdown';
 import { NotificationList, Routes, SAFETY_LEVELS } from 'utils/constants';
+import { ReactComponent as StartGenerating } from 'images/curio/start_generating.svg';
 
 const InfoCard = ({ title, amount, denom }) => (
   <Card py={{ s: 'm', xl: 'l' }} px="m" minWidth="22.4rem">
@@ -59,7 +60,10 @@ function Overview({ viewedAddress }) {
   const { emergencyShutdownActive } = useEmergencyShutdown();
   const { addNotification, deleteNotifications } = useNotification();
   useEffect(() => {
-    if (account && viewedAddress.toLowerCase() !== account.address.toLowerCase()) {
+    if (
+      account &&
+      viewedAddress.toLowerCase() !== account.address.toLowerCase()
+    ) {
       addNotification({
         id: NotificationList.NON_OVERVIEW_OWNER,
         content: lang.formatString(
@@ -89,23 +93,27 @@ function Overview({ viewedAddress }) {
         >
           {account && account.address === viewedAddress ? (
             <>
-              <Text.p t="h4" mb="26px">
-                {lang.overview_page.get_started_title}
-              </Text.p>
-              <Button
-                disabled={emergencyShutdownActive}
-                p="s"
-                css={{ cursor: 'pointer' }}
-                onClick={() => {
-                  trackBtnClick('CreateFirst');
-                  show({
-                    modalType: 'cdpcreate',
-                    modalTemplate: 'fullscreen'
-                  });
-                }}
-              >
-                {lang.actions.get_started}
-              </Button>
+              <div className="start-generating-container">
+                <StartGenerating></StartGenerating>
+
+                <Text.p t="h4" mb="26px">
+                  {lang.overview_page.get_started_title}
+                </Text.p>
+                <Button
+                  disabled={emergencyShutdownActive}
+                  p="s"
+                  css={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    trackBtnClick('CreateFirst');
+                    show({
+                      modalType: 'cdpcreate',
+                      modalTemplate: 'fullscreen'
+                    });
+                  }}
+                >
+                  {lang.actions.get_started}
+                </Button>
+              </div>
             </>
           ) : (
             <Text.p t="h4" mb="s">
@@ -129,6 +137,22 @@ function Overview({ viewedAddress }) {
       <Text.h2 pr="m" mb="m" color="darkPurple">
         {lang.overview_page.title}
       </Text.h2>
+
+      <Button
+        disabled={emergencyShutdownActive}
+        p="s"
+        css={{ cursor: 'pointer' }}
+        onClick={() => {
+          trackBtnClick('CreateFirst');
+          show({
+            modalType: 'cdpcreate',
+            modalTemplate: 'fullscreen'
+          });
+        }}
+      >
+        {lang.actions.get_started}
+      </Button>
+
       {viewedAddressVaults && (
         <Grid gridRowGap={{ s: 'm', xl: 'l' }}>
           <Grid
@@ -153,7 +177,7 @@ function Overview({ viewedAddress }) {
                 .reduce((acc, { debtValue }) => debtValue.plus(acc), 0)
                 .toBigNumber()
                 .toFixed(2)}`}
-              denom={'DAI'}
+              denom={'CSC'}
             />
           </Grid>
           <Box>
@@ -264,7 +288,7 @@ function Overview({ viewedAddress }) {
                         </Table.td>
                         <Table.td display={{ s: 'none', xl: 'table-cell' }}>
                           <Text t="caption" color="darkLavender">
-                            {debtValue.toBigNumber().toFixed(2)} DAI
+                            {debtValue.toBigNumber().toFixed(2)} CSC
                           </Text>
                         </Table.td>
                         <Table.td>

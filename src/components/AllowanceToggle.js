@@ -5,6 +5,14 @@ import LoadingToggle from 'components/LoadingToggle';
 
 export default function AllowanceToggle({ tokenDisplayName = '', ...props }) {
   const { lang } = useLanguage();
+
+  //TODO: avoid hotfix
+  if (tokenDisplayName === 'DAI') {
+    tokenDisplayName = 'CSC';
+  }
+  if (tokenDisplayName === 'MANA') {
+    tokenDisplayName = 'CT1';
+  }
   return (
     <LoadingToggle
       completeText={lang.formatString(

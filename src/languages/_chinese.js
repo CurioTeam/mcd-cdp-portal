@@ -17,15 +17,15 @@ export default {
     // "outstanding_debt": "Outstanding debt",
     // "wallet_balance": "wallet balance",
     tx_history: '金库历史',
-    outstanding_dai_debt: '已借 Dai 数量',
+    outstanding_dai_debt: '已借 CSC 数量',
     not_applicable: 'N/A'
   },
   landing_page: {
     meta: {
       title: 'Oasis.app',
-      description: '"一站式 Dai 交易、借贷、存款平台。订单簿模式交易，抵押生成美元稳定币 Dai，存 Dai 获取收益。'
+      description: '"一站式 CSC 交易、借贷、存款平台。订单簿模式交易，抵押生成美元稳定币 CSC，存 CSC 获取收益。'
     },
-    headline: '一站式 Dai 交易、借贷、存款平台',
+    headline: '一站式 CSC 交易、借贷、存款平台',
     trade_card: {
       title: 'Trade',
       description:
@@ -35,20 +35,20 @@ export default {
     borrow_card: {
       title: 'Borrow',
       description:
-        '抵押资产，借 Dai (与美元 1:1 锚定的稳定币)',
-      button: '借 Dai'
+        '抵押资产，借 CSC (与美元 1:1 锚定的稳定币)',
+      button: '借 CSC'
     },
     save_card: {
       title: 'Save',
       description:
-        '存 Dai 生息，随存随取',
-      button: '存 Dai'
+        '存 CSC 生息，随存随取',
+      button: '存 CSC'
     },
     token_section_title: 'Oasis Trade 支持的交易对',
     token_section_only_on_trade: '只在 Oasis Trade 支持',
     section1_title: 'Oasis 是什么?',
     section1_p:
-      'Oasis 是去中心化金融 (DeFi) 的一站式平台。你可以交易数字资产、借 Dai 和存 Dai 赚利息。',
+      'Oasis 是去中心化金融 (DeFi) 的一站式平台。你可以交易数字资产、借 CSC 和存 CSC 赚利息。',
     section2_title: '基于以太坊的安全协议',
     section2_p:
       'Oasis 是由 Maker 开发，基于以太坊创建、通过形式化验证和安全审计的智能合约，是去中心化金融领域的领导者。',
@@ -58,10 +58,10 @@ export default {
     questions_title: '常见问题',
     question1: 'Oasis 是什么?',
     answer1:
-      'Oasis 是运行在以太坊区块链上的去中心化应用。任何人都可以在 Oasis 上交易数字资产、抵押借 Dai 并且存 Dai 生息。',
-    question2: 'Dai 是什么?',
+      'Oasis 是运行在以太坊区块链上的去中心化应用。任何人都可以在 Oasis 上交易数字资产、抵押借 CSC 并且存 CSC 生息。',
+    question2: 'CSC 是什么?',
     answer2:
-      'Dai 是全球第一个无偏见的去中心化稳定币，其价格和美元保持软锚定。了解 Dai：{0}',
+      'CSC 是全球第一个无偏见的去中心化稳定币，其价格和美元保持软锚定。了解 CSC：{0}',
     answer2_link1_url: 'https://makerdao.com/zh-CN/',
     answer2_link1_text: '更多内容',
     question3: '我需要注册账户吗?',
@@ -86,7 +86,7 @@ export default {
     question7:
       '我可以用银行卡在 Oasis 上购买比特币或者以太坊吗？',
     answer7:
-      '你无法在 Oasis 用银行卡购买加密资产，你可以用 Dai 购买以太坊和其他资产。',
+      '你无法在 Oasis 用银行卡购买加密资产，你可以用 CSC 购买以太坊和其他资产。',
     read_only: 'Read-Only',
     wallet_connect: 'Wallet Connect',
     wallet_link: 'Coinbase Wallet'
@@ -94,25 +94,25 @@ export default {
   borrow_landing: {
     meta: {
       title: 'Oasis Borrow',
-      description: '让你的资产增倍。通过「金库」轻松抵押资产生成 Dai。在获得流动性的同时，保持抵押品的增值机会。'
+      description: '让你的资产增倍。通过「金库」轻松抵押资产生成 CSC。在获得流动性的同时，保持抵押品的增值机会。'
     },
     page_name: 'Oasis Borrow',
     headline: '让你的资产增倍',
     subheadline:
-      "通过「金库」轻松抵押资产生成 Dai。在获得流动性的同时，保持抵押品的增值机会。",
+      "通过「金库」轻松抵押资产生成 CSC。在获得流动性的同时，保持抵押品的增值机会。",
     connect_to_start: '连接加密钱包，创建和管理「金库」',
-    wbtc_notice: '比特币可以抵押生成 Dai 了：',
+    wbtc_notice: '比特币可以抵押生成 CSC 了：',
     quotes_block: {
       title: '最大化你的收益机会',
       body:
-        '通过生成的 Dai 做多加密资产',
+        '通过生成的 CSC 做多加密资产',
       quote1:
         '在 2018 年 9 月的时候，我希望增加 ETH 的持仓量。卖是不可能卖的，用「金库」很方便，只需要两笔交易就可以安全做多我的 ETH。',
       author1: '第 2434 号金库持有者'
     },
-    calc_heading: '借 Dai 计算器',
-    calc_subheading: '输入希望抵押的类型和数量，看看可以借多少 Dai',
-    calc_dai_available: '目前你可以借 {amount} Dai',
+    calc_heading: '借 CSC 计算器',
+    calc_subheading: '输入希望抵押的类型和数量，看看可以借多少 CSC',
+    calc_dai_available: '目前你可以借 {amount} CSC',
     calc_footnote: '以上的计算基于 {ratio}% 的抵押率',
     feature1_heading: '灵活的偿还期限',
     feature1_content:
@@ -130,16 +130,16 @@ export default {
       question1: '我可以用哪些资产作为抵押品？',
       answer1:
         '目前，Oasis Borrow 支持 ETH、BAT、USDC 和 WBTC，且有计划新增更多类型的抵押品，而且不同抵押品类型可以有不同的风险参数。你可以阅读 Maker 协议《抵押品入选指南》来了解更多信息。',
-      question2: '抵押借 Dai 的成本是多少？',
+      question2: '抵押借 CSC 的成本是多少？',
       answer2:
-        '根据抵押品的不同，生成 Dai 的成本也不同。抵押借 Dai 需要收取稳定费用，稳定费用按每秒钟复利计算，并自动加到金库的债务总额中，在前端以未偿债务的年化利率显示。此外，还有一些其它费用，包括清算时 13% 的清算罚金以及每一笔交易需支付的矿工费。',
+        '根据抵押品的不同，生成 CSC 的成本也不同。抵押借 CSC 需要收取稳定费用，稳定费用按每秒钟复利计算，并自动加到金库的债务总额中，在前端以未偿债务的年化利率显示。此外，还有一些其它费用，包括清算时 13% 的清算罚金以及每一笔交易需支付的矿工费。',
       question3: '如果我的金库抵押品低于清算价格会怎么样？',
       answer3:
         '如果你的金库抵押品低于清算价格，即金库抵押率已经达到清算线，那么系统会将金库的抵押品进行拍卖并出售，以支付金库的未偿债务、稳定费用和清算罚金。如果金库在拍卖结束时有抵押品剩余，那么剩余抵押品将退还给金库持有者。注，Maker 不能保证金库的抵押品会以市价出售，在拍卖结束前，无法确定会返还多少抵押品。',
       question4:
-        "我没有支持的抵押品，如何获得 Dai ？",
+        "我没有支持的抵押品，如何获得 CSC ？",
       answer4:
-        "如果你没有协议所支持的抵押品资产，那么就无法通过 Oasis Borrow 抵押生成 Dai 。不过你仍然可以在交易所将你的资产兑换成 Dai。你可以前往 Oasis Trade 交易获得 Dai。",
+        "如果你没有协议所支持的抵押品资产，那么就无法通过 Oasis Borrow 抵押生成 CSC 。不过你仍然可以在交易所将你的资产兑换成 CSC。你可以前往 Oasis Trade 交易获得 CSC。",
       question5: '费率会不会变，多久变一次？',
       answer5:
         "费率会变化。稳定费率和清算罚金都是由 Maker 治理所决定的，由于 Maker 协议的持续治理，这些费率可以发生调整。你可以在 vote.makerdao.com 上查看关于 Maker 协议的各项治理。至于矿工费，这是由以太坊网络的拥堵情况决定的（你可以自己设置矿工费的高低）。如果网络很拥堵，你需要支付更多的矿工费才能快速打包交易。",
@@ -148,9 +148,9 @@ export default {
     }
   },
   borrow_wbtc_landing: {
-    headline: '如何用比特币生成 Dai',
+    headline: '如何用比特币生成 CSC',
     subheadline:
-      '现在你可以开启金库，通过抵押 wBTC 生成 Dai。wBTC 是以太坊网络上发行的 BTC 锚定代币。',
+      '现在你可以开启金库，通过抵押 wBTC 生成 CSC。wBTC 是以太坊网络上发行的 BTC 锚定代币。',
     about_title: '关于 WBTC',
     about_content:
       "wBTC (Wrapped Bitcoin) 是第一个 1:1 锚定 BTC 发行的以太坊 ERC20 代币。",
@@ -166,33 +166,33 @@ export default {
     step4: '将 WBTC 发送到支持以太坊的钱包',
     step4_details:
       '将你的 wBTC 发送到 Metamask, Ledger, Trezor 或其它支持 ERC20 的钱包。',
-    step5: '创建 WBTC 金库生成 Dai',
+    step5: '创建 WBTC 金库生成 CSC',
     step5_details:
-      '前往 {link} ，开始抵押 wBTC 生成 Dai',
+      '前往 {link} ，开始抵押 wBTC 生成 CSC',
     step5_link_text: 'Oasis.app/borrow'
   },
   save_landing: {
     meta: {
       title: 'Oasis Save',
-      description: '最安全的储蓄方式。任何人都可以存入 Dai 获取实时收益。无手续费，无限额，低波动。'
+      description: '最安全的储蓄方式。任何人都可以存入 CSC 获取实时收益。无手续费，无限额，低波动。'
     },
     page_name: 'Oasis Save',
     headline: '最安全的储蓄方式',
     subheadline:
-      '任何人都可以存入 Dai 获取实时收益。无手续费，无限额，低波动。',
+      '任何人都可以存入 CSC 获取实时收益。无手续费，无限额，低波动。',
     connect_to_start:
       '连接加密钱包，创建和管理「金库」',
     quotes_block: {
-      title: '获取 Dai 存款利息',
+      title: '获取 CSC 存款利息',
       body:
         '在波动的市场环境里，找到资产的避风港。享受稳定收益，等待机会。',
       quote1:
-        '当市场波动大的时候，我决定将资产换成 Dai 放在「金库」里。享受稳定收益带来的宁静，不用再担心暴跌。',
+        '当市场波动大的时候，我决定将资产换成 CSC 放在「金库」里。享受稳定收益带来的宁静，不用再担心暴跌。',
       author1: 'Oasis Save 用户'
     },
     calc_heading: '我可以赚多少利息？',
     calc_subheading:
-      '输入存 Dai 数量和时间，看看可以赚取多少存款利息。',
+      '输入存 CSC 数量和时间，看看可以赚取多少存款利息。',
     calc_initial: '初始存入数额',
     calc_contribution: '每月存款额',
     calc_how_long: '存款时间',
@@ -291,7 +291,7 @@ export default {
     ratio_mobile: '当前比率',
     deposited: '已存入',
     withdraw: '可取回',
-    debt: 'DAI',
+    debt: 'CSC',
     view_cdp: '查看金库',
     view_cdp_mobile: '查看',
     total_collateral_locked: '全部存入抵押品价值',
@@ -423,10 +423,10 @@ export default {
   cdp_migrate: {
     select_title: '选择要映射的金库',
     select_text:
-      '选择要映射的 CDP，用 DAI 或 MKR 偿还稳定费，映射到多抵押 Dai 和新的 CDP 面板。',
+      '选择要映射的 CDP，用 CSC 或 MKR 偿还稳定费，映射到多抵押 Dai 和新的 CDP 面板。',
     current_ratio: '当前比率',
     dai_debt: '借 Dai 额',
-    fee_in_dai: '以 DAI 计价的稳定费',
+    fee_in_dai: '以 CSC 计价的稳定费',
     fee_in_mkr: '以 MKR 计价的稳定费',
     migrate: '映射',
     payment: '支付',
@@ -495,13 +495,13 @@ export default {
     withdraw_description: '你希望取回多少 {0} ?',
     withdraw_warning:
       '你取回的抵押品数量会让金库接近清算线风险',
-    generate_title: '生成 DAI',
-    generate_description: '你希望生成多少 DAI?',
+    generate_title: '生成 CSC',
+    generate_description: '你希望生成多少 CSC?',
     generate_warning:
       '你生成的 Dai 的数量会让金额接近清算线风险',
     generate_threshold: '尝试生成的 Dai 超过了可授权的数额，请输入少于 {0} 的 Dai 数额。',
-    payback_title: '偿还 DAI',
-    payback_description: '你希望偿还多少 DAI?',
+    payback_title: '偿还 CSC',
+    payback_description: '你希望偿还多少 CSC?',
     cdp_below_threshold: '金库低于清算线',
     insufficient_balance: '{0} 余额不足',
     cannot_payback_more_than_owed: '无需偿还比借出还多的钱',
@@ -548,7 +548,7 @@ export default {
     tx_history: '历史记录',
     savings_earned_to_date: '已赚利息',
     estimated_savings: '预计收益',
-    dai_locked_dsr: '存在 DSR 中的 DAI',
+    dai_locked_dsr: '存在 DSR 中的 CSC',
     deposit_withdraw: '存入和取回',
     deposit_btn_cta: '实时获取收益',
     withdraw_btn_cta: '随时安全可取',
@@ -573,8 +573,8 @@ export default {
     unlocking_token: '授权 {0}',
     setting_up_proxy: '设置代理',
     creating_cdp: '创建金库',
-    generate_dai: '生成 DAI',
-    pay_back_dai: '偿还 DAI',
+    generate_dai: '生成 CSC',
+    pay_back_dai: '偿还 CSC',
     withdrawing_gem: '取出 {0}',
     depositing_gem: '存入 {0}',
     claiming_collateral: '赎回抵押品',
@@ -584,8 +584,8 @@ export default {
     unlocking_token: 'Unlocked {0}',
     setting_up_proxy: 'Set up proxy',
     creating_cdp: 'Created Vault',
-    generate_dai: 'Generated {0} DAI',
-    pay_back_dai: 'Paid back {0} DAI',
+    generate_dai: 'Generated {0} CSC',
+    pay_back_dai: 'Paid back {0} CSC',
     withdrawing_gem: 'Withdrew {0}',
     depositing_gem: 'Deposited {0}',
     claiming_collateral: 'Claimed collateral',
@@ -627,7 +627,7 @@ export default {
   stability_fee: '稳定费率',
   liquidation_penalty: '清算罚金',
   collateral_debt_ceiling: '债务上限',
-  dai_available: '可用 DAI',
+  dai_available: '可用 CSC',
   returned_auction: '拍卖返还额',
   liquidated_event: '你的金库已经被清算',
   liquidation_ratio: '清算线',

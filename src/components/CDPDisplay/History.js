@@ -5,6 +5,7 @@ import ExternalLink from 'components/ExternalLink';
 import { formatEventDescription, formatDate } from 'utils/ui';
 import theme from 'styles/theme';
 import styled, { keyframes } from 'styled-components';
+import { ReactComponent as NotFound } from 'images/curio/not_found.svg';
 
 const FADE_IN_ROWS = 20;
 const FADE_IN_DELAY = 30;
@@ -118,9 +119,12 @@ export default function({
             ) : (
               <tr key={0}>
                 <td colSpan="3">
-                  <Text color="darkLavender" t="caption">
-                    {emptyTableMessage}
-                  </Text>
+                  <div className="empty-table-container">
+                    <NotFound></NotFound>
+                    <Text color="darkLavender" t="caption">
+                      {emptyTableMessage}
+                    </Text>
+                  </div>
                 </td>
               </tr>
             )}

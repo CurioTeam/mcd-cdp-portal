@@ -31,6 +31,7 @@ const Deposit = ({ vault, reset }) => {
   } = vault;
 
   const symbol = collateralAmount?.symbol;
+
   const { hasAllowance, hasSufficientAllowance } = useTokenAllowance(symbol);
   const gemBalances = useWalletBalances();
   const gemBalance = gemBalances[symbol] || 0;

@@ -90,7 +90,7 @@ function Notifications() {
 
   return (
     <Globals>
-      <Box mb="l">
+      <Box>
         {viewable &&
           !!bannerEntries.length &&
           bannerEntries.map(

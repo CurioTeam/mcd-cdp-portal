@@ -34,9 +34,9 @@
     "999": "Testchain",
     "1337": "Ex_Testchain"
   },
-  "defaultNetwork": "1",
+  "defaultNetwork": "42",
   "exTestchainApiUrl": "http://localhost:4000/chain",
-  "showWalletTokens": ["DAI", "DSR", "ETH", "SAI", "WETH", "BAT", "USDC", "WBTC", "TUSD", "KNC", "ZRX", "MANA"],
+  "showWalletTokens": ["DAI", "MANA"],
   "trackingPages": {
     "Overview": "Overview",
     "CDP": "Dashboard",

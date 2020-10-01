@@ -23,6 +23,7 @@ const DsrWithdraw = ({ savings, reset }) => {
 
   const { daiLockedInDsr } = savings;
   const { DAI: daiBalance } = useWalletBalances();
+  console.log('daiBalance', daiBalance);
   const { hasAllowance, hasSufficientAllowance } = useTokenAllowance(
     DAI.symbol
   );
@@ -90,7 +91,7 @@ const DsrWithdraw = ({ savings, reset }) => {
           disabled={!hasAllowance}
           type="number"
           min="0"
-          placeholder="0 DAI"
+          placeholder="0 CSC"
           value={withdrawAmount}
           onChange={e => {
             if (withdrawMaxFlag) setWithdrawMaxFlag(false);

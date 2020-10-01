@@ -105,9 +105,9 @@ function SidebarBase() {
       setLastPathname(pathname);
     }
   }, [pathname, lastPathname, resetSidebarActionAnimated]);
-
+  // minWidth={getMeasurement('sidebarWidth')}
   return (
-    <Box minWidth={getMeasurement('sidebarWidth')} pt="s">
+    <Box className="sidebar-base">
       <TransactionManager
         transactions={transactions}
         hideTransaction={hideTransaction}

@@ -20,7 +20,11 @@ const CDPCreateSelectCollateralSidebar = () => {
   const { lang } = useLanguage();
   return (
     <Box px="l" py="m">
-      <Box>
+      <Grid
+        gridTemplateColumns={{ s: 'initial', l: '3fr 3fr 3fr' }}
+        gridGap="m"
+        my="l"
+      >
         {[
           [lang.stability_fee, lang.cdp_create.stability_fee_description],
           [
@@ -32,14 +36,14 @@ const CDPCreateSelectCollateralSidebar = () => {
             lang.cdp_create.liquidation_penalty_description
           ]
         ].map(([title, text]) => (
-          <Grid mb="m" key={title} gridRowGap="xs">
-            <TextBlock t="h5" lineHeight="normal">
+          <div key={title}>
+            <TextBlock t="h5" lineHeight="normal" mb="m">
               {title}
             </TextBlock>
             <TextBlock t="body">{text}</TextBlock>
-          </Grid>
+          </div>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
 };
@@ -72,6 +76,21 @@ function IlkTableRow({
   }
   const disabled = ilk.gem === 'TUSD';
 
+  //TODO: avoid hotfix
+  let symbol = ilk.symbol;
+  if (symbol === 'DAI') {
+    symbol = 'CSC';
+  }
+  if (symbol === 'MANA-A') {
+    symbol = 'CT1-A';
+  }
+  let gem = ilk.gem;
+  if (gem === 'DAI') {
+    gem = 'CSC';
+  }
+  if (gem === 'MANA') {
+    gem = 'CT1';
+  }
   return (
     <tr
       style={disabled ? { color: '#ADADAD' } : { whiteSpace: 'nowrap' }}
@@ -89,7 +108,7 @@ function IlkTableRow({
         />
       </td>
       <td>
-        <div>{ilk.symbol}</div>
+        <div>{symbol}</div>
         {disabled && (
           <div style={{ fontSize: '11px', paddingBottom: '5px' }}>
             Unavailable due to a token upgrade
@@ -106,10 +125,10 @@ function IlkTableRow({
       <td>{formatter(liquidationRatio, { percentage: true })} %</td>
       <td>{formatter(liquidationPenalty, { percentage: true })} %</td>
       <td css="text-align: right">
-        {ilk.gem === 'USDC'
+        {gem === 'USDC'
           ? prettifyNumber(gemBalance, { truncate: true })
           : prettifyNumber(gemBalance)}{' '}
-        {ilk.gem}
+        {gem}
       </td>
     </tr>
   );
@@ -127,6 +146,7 @@ const CDPCreateSelectCollateral = ({
   const { trackBtnClick } = useAnalytics('SelectCollateral', 'VaultCreate');
   const { lang } = useLanguage();
   const { cdpTypes } = useCdpTypes();
+  console.log('CDPCreateSelectCollateral cdpTypes', cdpTypes);
   const hasAllowanceAndProxy = hasAllowance && !!proxyAddress;
 
   return (
@@ -141,7 +161,7 @@ const CDPCreateSelectCollateral = ({
         text={lang.cdp_create.select_text}
       />
       <Grid
-        gridTemplateColumns={{ s: 'minmax(0, 1fr)', l: '2fr 1fr' }}
+        gridTemplateColumns={{ s: 'initial', l: 'initial' }}
         gridGap="m"
         my="l"
       >

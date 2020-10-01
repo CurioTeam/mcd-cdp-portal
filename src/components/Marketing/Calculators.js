@@ -358,14 +358,21 @@ const cdpTypesMetaData = {
     amountRange: [200, 70000],
     amountStart: 100
   }
+  // 'OMG-A': {
+  //   text: 'OMG',
+  //   colRatio: 200,
+  //   amountRange: [200, 70000],
+  //   amountStart: 100
+  // }
 };
 
 const BorrowCalculator = ({ prices, cdpTypesList, ...props }) => {
   const { lang } = useLanguage();
-  const [selectedSymbol, setSelectedSymbol] = useState('ETH-A');
+  const [selectedSymbol, setSelectedSymbol] = useState(cdpTypesList[0]);
 
   const interfaceLocale = lang.getInterfaceLanguage();
 
+  // console.log('cdpTypesList', cdpTypesList);
   const ilks = cdpTypesList
     .map((cdpTypeName, index) => ({
       symbol: cdpTypeName,
@@ -378,7 +385,8 @@ const BorrowCalculator = ({ prices, cdpTypesList, ...props }) => {
     }));
 
   const selectedIlk = ilks.find(ilk => ilk.symbol === selectedSymbol);
-  const getTokenName = ilk => ilk.symbol.split('-')[0];
+  console.log('ilks', ilks);
+  const getTokenName = ilk => ilk && ilk.symbol.split('-')[0];
   const collateralAmounts = ilks.reduce((acc, ilk) => {
     acc[ilk.symbol] = ilk.amountStart;
     return acc;
@@ -392,6 +400,7 @@ const BorrowCalculator = ({ prices, cdpTypesList, ...props }) => {
     setCollateralAmount(collateralAmounts[selectedSymbol]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSymbol]);
+
   return (
     <CalculatorStyle px={{ s: '22px', m: '0' }} {...props}>
       <BorrowCalcContent>
@@ -593,7 +602,7 @@ const SaveCalculator = (() => {
               value={initialDeposit}
               onChange={value => setInitialDeposit(value)}
               displayValue={value =>
-                `${prettifyCurrency(locale, value, 0)} DAI`
+                `${prettifyCurrency(locale, value, 0)} CSC`
               }
             />
           </SliderAndLabel>
@@ -606,7 +615,7 @@ const SaveCalculator = (() => {
               value={monthlyContribution}
               onChange={value => setMonthlyContribution(value)}
               displayValue={value =>
-                `${prettifyCurrency(locale, value, 0)} DAI`
+                `${prettifyCurrency(locale, value, 0)} CSC`
               }
             />
           </SliderAndLabel>
